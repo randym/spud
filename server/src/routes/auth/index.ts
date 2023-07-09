@@ -1,8 +1,9 @@
+import { env } from '../../config'
 import { Router } from 'express'
 import passport from 'passport'
 import { Express } from 'express'
 
-const CLIENT_URL = 'http://localhost:5173/'
+const { CLIENT_URL = 'http://localhost:5173' } = env
 
 const router = Router()
 
@@ -43,5 +44,6 @@ export const authRoutes = router
 export const auth = {
   apply(app: Express) {
     app.use('/auth', router)
+    app.use('/api/v1/auth', router)
   },
 }
