@@ -1,0 +1,33 @@
+.navbar {
+  height: 50px;
+  color: white;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+}
+.logo {
+  font-size: 30px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+.link {
+  color: white;
+}
+.avatar {
+  height: 40px;
+  border-radius: 50%;
+}
+.list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  margin-left: auto;
+}
+
+.listItem {
+  margin-right: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
