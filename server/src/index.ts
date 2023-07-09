@@ -1,7 +1,6 @@
 import express from 'express'
 import os from 'os'
 import fs from 'fs'
-import io from 'socket.io'
 import { env } from './config'
 import { middleware } from './middleware'
 import { routes } from './routes'
