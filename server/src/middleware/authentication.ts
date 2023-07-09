@@ -13,7 +13,7 @@ const {
 const options: StrategyOptions = {
   clientID,
   clientSecret,
-  callbackURL: '/api/v1/auth/github/callback',
+  callbackURL: '/api/v1/auth/github/callback', // this MUST match github oauth app redirect url
 }
 
 const isValidProfile = ({ username }: { username: string }) =>
