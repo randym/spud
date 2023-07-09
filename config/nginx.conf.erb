@@ -30,7 +30,7 @@ http {
 		listen <%= ENV["PORT"] %>;
 		server_name _;
 		keepalive_timeout 5;
-        root /client/dist;
+        root /app/client/dist;
         index index.html;
 
         location /api/v1/ {
