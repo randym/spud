@@ -1,7 +1,7 @@
 {
     "scripts": {
         "dev": "concurrently \"cd ./server && npm run dev\" \"cd ./client && npm run dev\"",
-        "heroku-postbuild": "concurrently \"cd ./server && npm i && npm run build\" \"cd ./client && npm i && npm run build\"",
+        "heroku-postbuild": "concurrently \"cd ./server && npm ci && npm run build\" \"cd ./client && npm ci && npm run build\"",
         "build": "concurrently \"cd ./server && npm run build\" \"cd ./client && npm run build\"",
         "start": "cd server/dist && node index.js"
     },
