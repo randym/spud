@@ -31,16 +31,12 @@ router.get('/logout', (req, res) => {
 
 router.get('/github', passport.authenticate('github', { scope: ['profile'] }))
 
-router.get(
-  '/github/callback',
+router.get('/github/callback', (req, _res) => {
   passport.authenticate('github', {
-    successRedirect: '/',
-    failureRedirect: '/',
-  }),
-  (req, res) => {
-    res.redirect(`https://${req.headers.host}/`)
-  },
-)
+    successRedirect: `https://${req.headers.host}/`,
+    failureRedirect: `https://${req.headers.host}/`,
+  })
+})
 
 export const authRoutes = router
 
