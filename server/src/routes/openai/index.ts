@@ -23,6 +23,6 @@ function authenticated(req: any, res: any, next: any) {
 export const openai = {
   apply(app: Express) {
     app.use('/openai', router)
-    app.use('/api/v1/auth', router)
+    app.use('/api/v1/openai', router)
   },
 }
