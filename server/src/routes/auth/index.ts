@@ -33,17 +33,11 @@ router.get('/github', passport.authenticate('github', { scope: ['profile'] }))
 
 router.get(
   '/github/callback',
-  (req, res, next) => {
-    console.log('github callback handler', passport)
-    next()
-  },
-  /*
   passport.authenticate('github', {
     successRedirect: '/',
     failureRedirect: '/',
     // '/auth/login/failure',
   }),
-  */
 )
 
 export const authRoutes = router
