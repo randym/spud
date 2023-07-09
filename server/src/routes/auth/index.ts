@@ -30,12 +30,16 @@ router.get('/logout', (req, res) => {
 })
 
 router.get('/github', passport.authenticate('github', { scope: ['profile'] }))
+// TODO - dig into this and get the redirects we actually want
 
-router.get('/github/callback', (req, _res) => {
+router.get('/github/callback', (req, res) => {
+  res.redirect(`https://${req.headers.host}/`)
+  /*
   passport.authenticate('github', {
     successRedirect: `https://${req.headers.host}/`,
     failureRedirect: `https://${req.headers.host}/`,
   })
+  */
 })
 
 export const authRoutes = router
