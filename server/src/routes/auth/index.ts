@@ -14,6 +14,12 @@ router.get('/login/success', (req, res) => {
       message: 'user has successfully authenticated',
       user: req.user,
     })
+  } else {
+    res.status(404).json({
+      success: false,
+      message: 'yeah, but no but yeah',
+      user: '',
+    })
   }
 })
 
@@ -30,17 +36,19 @@ router.get('/logout', (req, res) => {
 })
 
 router.get('/github', passport.authenticate('github', { scope: ['profile'] }))
-// TODO - dig into this and get the redirects we actually want
 
-router.get('/github/callback', (req, res) => {
-  res.redirect(`https://${req.headers.host}/`)
-  /*
+router.get(
+  '/github/callback',
+  // TODO - dig into this and get the redirects we actually want
+  // same call to do two different things really smells like shite
+  // we can redirect but we can see that the profile is not in the session
+  // anyway - need to sleep
+
   passport.authenticate('github', {
-    successRedirect: `https://${req.headers.host}/`,
-    failureRedirect: `https://${req.headers.host}/`,
-  })
-  */
-})
+    successRedirect: `/`,
+    failureRedirect: `/`,
+  }),
+)
 
 export const authRoutes = router
 
