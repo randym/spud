@@ -36,7 +36,6 @@ router.get(
   passport.authenticate('github', {
     successRedirect: '/',
     failureRedirect: '/',
-    // '/auth/login/failure',
   }),
 )
 
