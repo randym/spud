@@ -13,7 +13,7 @@ const {
 const options: StrategyOptions = {
   clientID,
   clientSecret,
-  callbackURL: 'http://localhost:3000/auth/github/callback',
+  callbackURL: '/api/v1/auth/github/callback',
 }
 
 const isValidProfile = ({ username }: { username: string }) =>
