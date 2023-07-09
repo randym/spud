@@ -10,7 +10,11 @@ const {
   WHITE_LIST: invitees = '',
 } = env
 
-const options: StrategyOptions = { clientID, clientSecret, callbackURL: '/auth/github/callback' }
+const options: StrategyOptions = {
+  clientID,
+  clientSecret,
+  callbackURL: 'http://localhost:3000/auth/github/callback',
+}
 
 const isValidProfile = ({ username }: { username: string }) =>
   invitees.split(',').includes(username)
