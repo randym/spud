@@ -44,9 +44,10 @@ router.get(
   // we can redirect but we can see that the profile is not in the session
   // anyway - need to sleep
 
-  passport.authenticate('github', {}, (req: express.Request, res: express.Response) => {
+  passport.authenticate('github', {}),
+  (req: express.Request, res: express.Response) => {
     res.redirect(`https://${req.headers.host}/`)
-  }),
+  },
 )
 
 export const authRoutes = router
