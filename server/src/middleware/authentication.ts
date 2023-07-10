@@ -8,12 +8,13 @@ const {
   GITHUB_CLIENT_ID: clientID = '',
   GITHUB_CLIENT_SECRET: clientSecret = '',
   WHITE_LIST: invitees = '',
+  OAUTH_CALLBACK_URL = '',
 } = env
 
 const options: StrategyOptions = {
   clientID,
   clientSecret,
-  callbackURL: '/auth/github/callback', // this MUST match github oauth app redirect url
+  callbackURL: OAUTH_CALLBACK_URL, // this MUST match github oauth app redirect url
 }
 
 const isValidProfile = ({ username }: { username: string }) =>
