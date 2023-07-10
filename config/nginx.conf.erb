@@ -26,7 +26,7 @@ http {
 	# Must read the body in 5 seconds.
 	client_body_timeout 5;
     upstream api_server {
-		server <%= ENV["API_SERVER"] || 127.0.0.01 %>:<%= ENV["API_SERVCER_PORT"] || 3000 %> fail_timeout=0;
+		server <%= ENV["API_SERVER"] || '127.0.0.1' %>:<%= ENV["API_SERVCER_PORT"] || '3000' %> fail_timeout=0;
 	}
  127.0.0.1:3000
 	server {
