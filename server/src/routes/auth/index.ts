@@ -4,18 +4,17 @@ import express from 'express'
 
 import { env } from '../../config'
 
-const { NODE_NEV = 'local' } = env
-const protocol = NODE_NEV === 'production' ? 'https' : 'http'
+const { CLIENT_URL = '/' } = env
 
 const router = Router()
 
 const root = (req: express.Request, res: express.Response) => {
-  res.redirect(req.headers.referer || `${protocol}://${req.headers.host}/`)
+  res.redirect(CLIENT_URL)
 }
 
 const logout = (req: express.Request, res: express.Response) => {
   req.logout(() => {})
-  res.redirect(req.headers.referer || `${protocol}://${req.headers.host}/`)
+  res.redirect(CLIENT_URL)
 }
 
 router.get('/user', (req, res) => {
