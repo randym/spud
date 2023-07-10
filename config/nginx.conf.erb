@@ -28,7 +28,7 @@ http {
     upstream api_server {
 		server <%= ENV["API_SERVER"] || '127.0.0.1' %>:<%= ENV["API_SERVCER_PORT"] || '3000' %> fail_timeout=0;
 	}
- 127.0.0.1:3000
+
 	server {
 		listen <%= ENV["PORT"] %>;
 		server_name _;
