@@ -1,7 +1,7 @@
 import { env } from '../../config'
 import { Router } from 'express'
 import passport from 'passport'
-import { Express } from 'express'
+import express from 'express'
 
 const { CLIENT_URL = 'http://localhost:5173' } = env
 
@@ -44,16 +44,15 @@ router.get(
   // we can redirect but we can see that the profile is not in the session
   // anyway - need to sleep
 
-  passport.authenticate('github', {
-    // successRedirect: `/`,
-    // failureRedirect: `/`,
+  passport.authenticate('github', {}, (req: express.Request, res: express.Response) => {
+    res.redirect(`https://${req.headers.host}/`)
   }),
 )
 
 export const authRoutes = router
 
 export const auth = {
-  apply(app: Express) {
+  apply(app: express.Express) {
     app.use('/auth', router)
     app.use('/api/v1/auth', router)
   },
