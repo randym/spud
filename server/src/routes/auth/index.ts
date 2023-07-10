@@ -45,8 +45,8 @@ router.get(
   // anyway - need to sleep
 
   passport.authenticate('github', {
-    successRedirect: `/`,
-    failureRedirect: `/`,
+    // successRedirect: `/`,
+    // failureRedirect: `/`,
   }),
 )
 
