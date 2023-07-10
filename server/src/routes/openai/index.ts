@@ -7,7 +7,7 @@ const router = Router()
 router.post('/completion', authenticated, async (req, res) => {
   try {
     const completion = await OpenAI.complete(req.body.prompt)
-    res.send(completion)
+    res.status(200).send(completion)
   } catch (e: any) {
     res.status(500).send(e.message)
   }
@@ -23,6 +23,5 @@ function authenticated(req: any, res: any, next: any) {
 export const openai = {
   apply(app: Express) {
     app.use('/openai', router)
-    app.use('/api/v1/openai', router)
   },
 }

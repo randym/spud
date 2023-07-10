@@ -2,14 +2,20 @@ import { Router } from 'express'
 import passport from 'passport'
 import express from 'express'
 
+import { env } from '../../config'
+
+const { NODE_NEV = 'local' } = env
+const protocol = NODE_NEV === 'production' ? 'https' : 'http'
+
 const router = Router()
 
-const root = (req: express.Request, res: express.Response) =>
-  res.redirect(`https://${req.headers.host}/`)
+const root = (req: express.Request, res: express.Response) => {
+  res.redirect(req.headers.referer || `${protocol}://${req.headers.host}/`)
+}
 
 const logout = (req: express.Request, res: express.Response) => {
   req.logout(() => {})
-  res.redirect(`https://${req.headers.host}/`)
+  res.redirect(req.headers.referer || `${protocol}://${req.headers.host}/`)
 }
 
 router.get('/user', (req, res) => {
