@@ -42,7 +42,6 @@ export class Ear extends Delegate {
   }
 
   broadcast(name: string, event: RecognitionEvent) {
-    console.log(name, event)
     const events = this.events[name] || []
     events.forEach((observer) => observer(event))
   }
@@ -50,7 +49,6 @@ export class Ear extends Delegate {
   destructor() {
     this.bind('off')
     this.events = {}
-    console.log(this)
   }
 
   bind(direction: 'on' | 'off' = 'on') {

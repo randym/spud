@@ -1,8 +1,7 @@
-import React from 'react'
 import './navbar.css'
 import { Link } from 'react-router-dom'
 
-export const NavBar = ({ user }) => {
+export const NavBar = ({ user }: { user: User | null }) => {
   const logout = () => {
     window.open('/api/v1/auth/logout', '_self')
   }

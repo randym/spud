@@ -1,4 +1,3 @@
-import React from 'react'
 import Github from '../../assets/github.png'
 import './login.css'
 export const Login = () => {

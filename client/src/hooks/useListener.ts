@@ -27,7 +27,7 @@ export const useListener = (lang = 'en-US', timeout = 2000) => {
     recognizer.current.interimResults = true
     recognizer.current.start()
   }
-  const parseResult = (event: RecognitionEvent) => {
+  const parseResult = (event: SpeechRecognitionEvent) => {
     return [...event.results].reduce((memo, result) => memo + result[0].transcript, '')
   }
 
@@ -35,7 +35,7 @@ export const useListener = (lang = 'en-US', timeout = 2000) => {
     recognizer.current.stop()
   }
 
-  recognizer.current.addEventListener('result', (event: RecognitionEvent) => {
+  recognizer.current.addEventListener('result', (event: SpeechRecognitionEvent) => {
     window.clearTimeout(timeoutID.current)
 
     timeoutID.current = window.setTimeout(() => {
@@ -56,7 +56,6 @@ export const useListener = (lang = 'en-US', timeout = 2000) => {
 
   recognizer.current.addEventListener('end', () => {
     result && setData({ ...data, prompt: result })
-    console.log('set result')
     setStatus('ended')
   })
 

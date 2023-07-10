@@ -29,7 +29,6 @@ export const GPTCompletion = () => {
       const transcript = completion.replace(/```([^`]*)```/g, '')
       setData({ transcript })
       setCompletion(completion)
-      console.log(completion)
     }
 
     complete()

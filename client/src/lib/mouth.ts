@@ -42,7 +42,6 @@ const next = (lines: SpeechSynthesisUtterance[]) => {
 }
 
 export const say = (text: string, language = 'en-US') => {
-  console.log('say', text, language)
   const lines = extractLines(text, language)
   next(lines)
 }

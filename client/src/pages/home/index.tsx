@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { GPTCompletion } from '../../components/GPTCompletion'
 import { ScreenReader } from '../../components/ScreenReader'
 import { SpeechRecognition } from '../../components/SpeechRecognition'

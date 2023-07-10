@@ -8,3 +8,8 @@ type SpeechRecognitionEventHandler<T> = {
 type DelegateDeclaration = { [key: string]: string[] }
 
 type AnyFunction = (...args: unknown[]) => unknown
+
+type User = {
+  displayName: string
+  photos: Array<{ value: string }>
+}

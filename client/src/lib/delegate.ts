@@ -18,7 +18,6 @@ export class Delegate {
           const call = receiver[method as keyof typeof receiver] as AnyFunction
 
           if (call) {
-            console.log('calling', method, receiver)
             return call.apply(receiver, args)
           }
 
