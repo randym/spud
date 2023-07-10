@@ -2,9 +2,7 @@ import React from 'react'
 import Github from '../../assets/github.png'
 import './login.css'
 export const Login = () => {
-  const github = () => {
-    window.open('/api/v1/auth/github', '_self')
-  }
+  const github = () => window.open('/api/v1/auth/github', '_self')
 
   return (
     <div className="login">

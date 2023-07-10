@@ -4,7 +4,7 @@ export const useAuthentication = () => {
   const [user, setUser] = useState(null)
   useEffect(() => {
     const authenticate = async () => {
-      const authentication = await fetch('/api/v1/auth/login/success', {
+      const authentication = await fetch('/api/v1/auth/user', {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -13,11 +13,11 @@ export const useAuthentication = () => {
           AccessControlAllowCredentials: 'true',
         },
       })
-      if (!authentication.ok || authentication.status !== 200) {
-        throw new Error('Authentication Failed')
+
+      if (authentication.ok && authentication.status === 200) {
+        const payload = await authentication.json()
+        setUser(payload.user)
       }
-      const payload = await authentication.json()
-      setUser(payload.user)
     }
 
     authenticate()
